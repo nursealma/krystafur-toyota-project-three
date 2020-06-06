@@ -1,0 +1,19 @@
+@import 'setup';
+@import 'responsive';
+
+.container {
+    width: 98%;
+    margin: 0 auto;
+    background-color: green;
+}
+.card {
+    float: left;
+    margin: 10px;
+    width: 150px;
+    height: 250px;
+    background: lightblue;
+}
+img {
+    width: 100%;
+
+}
