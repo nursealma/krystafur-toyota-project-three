@@ -2,6 +2,8 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 16px;
+  text-align: center;
+  min-width: 316px;
 }
 
 *, *:before, *:after {
@@ -25,15 +27,28 @@ img {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
-  background-color: red;
+  text-align: center;
+}
+
+h1 {
+  font-size: 5rem;
 }
 
 .container {
-  width: 98%;
+  width: 100%;
   margin: 0 auto;
-  background-color: green;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #262931;
+  border-radius: 7px;
 }
 
 .card {
@@ -41,9 +56,28 @@ img {
   margin: 10px;
   width: 150px;
   height: 250px;
-  background: lightblue;
+  background: #b86b69;
+  border-radius: 7px;
+  opacity: 0.8;
+  overflow: hidden;
+}
+
+.card:hover {
+  border: 3px solid black;
 }
 
 img {
-  width: 100%;
+  width: 97%;
+  border: 8px solid #b6aea8;
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }

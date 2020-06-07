@@ -1,19 +1,35 @@
 @import 'setup';
-@import 'responsive';
 
+h1 {
+    font-size: 5rem;
+}
 .container {
-    width: 98%;
+    width: 100%;
     margin: 0 auto;
-    background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+    background-color: #262931;
+    border-radius: 7px;
 }
 .card {
     float: left;
     margin: 10px;
     width: 150px;
     height: 250px;
-    background: lightblue;
+    background: #b86b69;
+    border-radius: 7px;
+    opacity: 0.8;
+    overflow: hidden;
+}
+
+.card:hover {
+    border: 3px solid black;
 }
 img {
-    width: 100%;
+    width: 97%;
+    border: 8px solid #b6aea8;
 
 }
+
+@import 'responsive';
