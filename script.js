@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+
+
 // everything inside tarot object
     const tarot = {
 // array of cards as property of object
@@ -86,6 +88,7 @@ $(document).ready(function(){
                                                      height: '500px',
                                                      opacity: '1'
                                                     })  
+                            document.getElementById("audio").play();
                             }
                         })
                 });
@@ -102,9 +105,6 @@ $(document).ready(function(){
 
 //all of the above relies on the following to begin the call chain.
         tarot.init()
-
-
-
 
 
 
