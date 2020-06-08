@@ -38,7 +38,7 @@ h1 {
 
 .container {
   width: 100%;
-  margin: 0 auto;
+  margin-bottom: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,7 +62,8 @@ h1 {
   overflow: hidden;
 }
 
-.card:hover {
+.card:hover,
+.card:focus {
   border: 3px solid black;
 }
 
