@@ -4,8 +4,7 @@ $(document).ready(function(){
 
 // everything inside tarot object
     const tarot = {
-// array of cards as property of object
-        
+// array of cards as property of object        
             cards: [
                 '00_Fool.jpg" alt="the fool"',
                 '01_Magician.jpg" alt="the magician"',
@@ -31,59 +30,45 @@ $(document).ready(function(){
                 '21_World.jpg" alt="the world"'
                 ],
 
-
-
 //init method kicks off chain of functions, firstly 'shuffle'
             init: function() {
                 tarot.shuffle();
             },
 
+//shuffle method runs through the length of the array and re-orders them, method taken from youtube 'shuffling an array' tutorial (NOTE: i havent been able to consistently wrap my head around how this works, but in this application it works)
             shuffle: function() {
-//shuffle method runs through the length of the array and re-orders them (method taken from youtube 'shuffling an array' tutorial NOTE: i can't quite wrap my head around how this works, but in this application it works)
                 let random = 0;
                 let temp = 0;
                 for(i = 1; i < tarot.cards.length; i++) {
                     random = Math.round(Math.random() * i);
                     temp = tarot.cards[i];
                     tarot.cards[i] = tarot.cards[random];
-                    tarot.cards[random] = temp;
-                 
-                }
+                    tarot.cards[random] = temp;         
+                }  
 //assignCards method is called after shuffle is completed
                 tarot.assignCards();
             },
-//assignCards is defined, each element with "card" class is iterated over and give an attribute of "data-card-value:" and index number
+
+//assignCards is defined, each element with "card" class is iterated over and give a "data-card-value" attribute equivlent to description of card as well as image file w/alt tag
             assignCards: function(){
                 $('.card').each(function(index){
                     $(this).attr('data-card-value', tarot.cards[index]);
-
-
-                    // attempt to attach alt tags in different way:
-//                     $(this).attr('data-card-alt', tarot.alt[index])
                 });
-
-
-
 //click events are then called once data-card-value attribute has been assigned
-
-                tarot.clickEvents();
-             
+                tarot.clickEvents();             
             },
 
-//click handler waits for click event on .card elements, on click the html is updated with image element and filetype enveloping name of array item (which is named the same as the image). "unselected" is dormant class on all .card elements, which is then removed and replaced with 'selected'. NOTE: javascript automatically changes data-card-value to cardValue
-
-
+//click handler waits for click event on .card elements, on click the html is updated with image element and filetype enveloping name of array item (which is named the same as the image). "unselected" is dormant class on all .card elements, which is then removed and replaced with 'selected'. (NOTE: javascript automatically changes data-card-value to cardValue)
             clickEvents: function(){
                 $('.card').on('click', function() {
                     $(this).html('<img src="./assets/' + $(this).data('cardValue') + ">"); 
                     // console.log($(this).data('cardValue'));     
                     $(this).removeClass('unselected').addClass('selected');
-                    console.log($('.selected').length)
+                    // console.log($('.selected').length)
                     //conditional statement checks to see if amount of items with a class of .selected is three, if so the other elements are removed from mark up and the three selected items grow in size
                     $(this).fadeIn(function(){
                         if ($('.selected').length === 3) {  
-                            $('.unselected').css("display", "none");
-                            // $('.container').css("background-color", "white");
+                            $('.unselected').css("display", "none")
                             $('.selected').animate({ width: '300px',
                                                      height: '500px',
                                                      opacity: '1'
@@ -103,7 +88,7 @@ $(document).ready(function(){
             }            
     };
 
-//all of the above relies on the following to begin the call chain.
+//all of the above relies on the following to begin the call chain
         tarot.init()
 
 
